@@ -23,7 +23,7 @@ int main()
 
     // A loop that runs through all the chars one by one.
         int i;
-        for(i = 0; i <= 10; i++){
+        for(i = 0; i <= 9; i++){
             // XXXXXXXXXXXXXXXXXX
             if(isupper(password[i])){
                 cap = 1;
