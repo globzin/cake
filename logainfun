@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <math.h>
+#include <string.h>
+
+int main()
+{
+    // Variable declaration.
+    char username[20];
+    char password[10];
+    int cap = 0, num = 0, lower = 0, special = 0, passwordCorrect = 0;
+
+    //MOTD
+    printf("Hallo! Welcome to X \n");
+
+    //Login Session
+    printf("\nThe password must contain a number, uppercase letter and a special character");
+    printf("\nEnter your username: ");
+    scanf(" %s", username);
+    printf("\nEnter your password: ");
+    scanf(" %s", password);
+
+    // A loop that runs through all the chars one by one.
+        int i;
+        for(i = 0; i <= 10; i++){
+            // XXXXXXXXXXXXXXXXXX
+            if(isupper(password[i])){
+                cap = 1;
+                if(cap == 0){
+                    cap = 0;
+                    continue;
+                }else {
+                    if(cap == 1){
+                        cap = 1;
+                    }
+                }
+            }
+
+            // XXXXXXXXXXXXXXXXXX
+            if(isdigit(password[i])){
+                num = 1;
+                if(num == 0){
+                    num = 0;
+                    continue;
+                }else {
+                    if(num == 1){
+                        num = 1;
+                    }
+                }
+            }
+
+            // XXXXXXXXXXXXXXXXXX
+            if(islower(password[i])){
+                    lower = 1;
+                if(lower == 0){
+                lower = 0;
+                continue;
+                }else {
+                    if(lower == 1){
+                        lower = 1;
+                    }
+                }
+            }
+
+            // XXXXXXXXXXXXXXXXXX
+            if(ispunct(password[i])){
+                special = 1;
+                if(special == 0){
+                special = 0;
+                continue;
+                }else {
+                    if(special == 1){
+                        special = 1;
+                    }
+                }
+            }
+        }
+
+            // XXXXXXXXXXXXXXXXXX
+                if(cap == 1 && num == 1 && lower == 1 && special == 1){
+                    passwordCorrect = 4;
+                }
+
+                // The score from the password checks.
+                passwordCorrect = cap+num+lower+special;
+                if(passwordCorrect >= 4){
+                        system("cls");
+                    printf("You made it! WHOOOOHO, cap: %d num: %d lower: %d special: %d \n\n", cap, num, lower, special);
+                    printf("Welcome, %s \n", username);
+                }else{
+                    printf("BUUUUEEEE!!!!");
+                }
+
+    return 0;
+}
